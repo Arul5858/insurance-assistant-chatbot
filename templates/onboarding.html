@@ -1,0 +1,11 @@
+{% extends 'base.html' %}{% block title %}Your insurance needs | Insurance Assistant{% endblock %}
+{% block content %}<div class="guided-wrap">
+<div class="welcome-panel"><div class="bot-avatar">IA</div><div><h1 class="h4 mb-1">Hi {{ first_name }}! Welcome to your Insurance Assistant.</h1><p class="mb-0 text-muted">I'll ask you five short questions, one at a time, to understand what kind of insurance you're looking for.</p></div></div>
+<div class="progress-area"><div class="d-flex justify-content-between small text-muted mb-2"><span id="stepLabel">Question 1 of 5</span><span id="progressPercent">20%</span></div><div class="progress" role="progressbar"><div id="progressBar" class="progress-bar" style="width:20%"></div></div></div>
+<div class="question-card shadow-sm"><div class="assistant-tag">YOUR ASSISTANT</div><h2 id="questionText" class="h4 mt-2">What is your age?</h2><p id="questionHint" class="text-muted">Enter your age in years (18–100).</p>
+<div id="answerArea"><input id="answerInput" type="number" min="18" max="100" class="form-control form-control-lg" placeholder="Enter your age"></div>
+<div id="errorMessage" class="text-danger small mt-2" role="alert"></div>
+<div class="d-flex justify-content-end mt-4"><button id="continueBtn" class="btn btn-primary px-4">Continue <span aria-hidden="true">→</span></button></div>
+</div><p class="small text-muted text-center mt-3">Your answers are saved to your account. This demo does not provide insurance quotes or eligibility decisions.</p>
+</div>{% endblock %}
+{% block scripts %}<script>window.ONBOARDING_QUESTIONS={{ questions|tojson }};</script><script src="{{ url_for('static', filename='js/onboarding.js') }}"></script>{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}{% block title %}Create account | Insurance Assistant{% endblock %}
+{% block content %}<div class="auth-wrap"><div class="auth-card shadow-sm">
+<div class="brand-mark">IA</div><h1 class="h3 text-center mb-1">Create your account</h1><p class="text-muted text-center mb-4">Start with a few details about your insurance needs.</p>
+<form method="post">
+<label class="form-label">Full name</label><input class="form-control mb-3" name="full_name" maxlength="120" autocomplete="name" required placeholder="Your full name">
+<label class="form-label">Email address</label><input class="form-control mb-3" type="email" name="email" autocomplete="email" required placeholder="you@example.com">
+<label class="form-label">Password</label><input class="form-control mb-3" type="password" name="password" minlength="8" autocomplete="new-password" required placeholder="At least 8 characters">
+<label class="form-label">Confirm password</label><input class="form-control mb-4" type="password" name="confirm_password" minlength="8" autocomplete="new-password" required placeholder="Enter password again">
+<button class="btn btn-primary w-100 py-2">Create account</button></form>
+<p class="text-center small mt-4 mb-0">Already registered? <a href="{{ url_for('login') }}">Log in</a></p>
+<p class="small text-muted text-center mt-3 mb-0">Demo application. Do not enter sensitive financial or medical information.</p>
+</div></div>{% endblock %}

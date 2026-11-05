@@ -1,0 +1,9 @@
+{% extends 'base.html' %}{% block title %}My profile | Insurance Assistant{% endblock %}
+{% block content %}<div class="row justify-content-center"><div class="col-lg-7"><div class="card border-0 shadow-sm p-4">
+<h1 class="h4">My insurance preferences</h1><p class="text-muted">These are the answers you provided during setup.</p>
+<dl class="row mb-0"><dt class="col-sm-5">Name</dt><dd class="col-sm-7">{{ current_user.full_name }}</dd><dt class="col-sm-5">Email</dt><dd class="col-sm-7">{{ current_user.email }}</dd>
+<dt class="col-sm-5">Age</dt><dd class="col-sm-7">{{ profile.age or 'Not provided' }}</dd><dt class="col-sm-5">Insurance type</dt><dd class="col-sm-7">{{ profile.insurance_type or 'Not provided' }}</dd>
+<dt class="col-sm-5">Budget</dt><dd class="col-sm-7">{% if profile.budget_amount %}₹{{ '{:,.2f}'.format(profile.budget_amount) }} / {{ profile.budget_period }}{% else %}Not provided{% endif %}</dd>
+<dt class="col-sm-5">Desired coverage</dt><dd class="col-sm-7">{{ profile.coverage_amount or 'Not provided' }}</dd><dt class="col-sm-5">Existing policy</dt><dd class="col-sm-7">{{ profile.has_existing_policy or 'Not provided' }}</dd></dl>
+<div class="mt-4"><a class="btn btn-primary" href="{{ url_for('chat') }}">Back to chat</a></div>
+</div></div></div>{% endblock %}

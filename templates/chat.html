@@ -1,0 +1,10 @@
+{% extends 'base.html' %}{% block title %}Chat | Insurance Assistant{% endblock %}
+{% block content %}<div class="row justify-content-center"><div class="col-xl-9 col-lg-10"><section class="chat-shell shadow-sm">
+<div class="chat-heading"><div class="d-flex align-items-center gap-3"><div class="bot-avatar">IA</div><div><h1 class="h5 mb-1">Insurance Assistant</h1><div class="small text-white-50"><span class="online-dot"></span> Ready to help, {{ first_name }}</div></div></div><button id="newChatBtn" class="btn btn-sm btn-outline-light">New chat</button></div>
+<div class="chat-notice">Ask general questions about insurance products, policies, premiums, renewals, and claims. Do not share passwords, OTPs, bank details, or sensitive medical information.</div>
+<div id="chatMessages" class="chat-messages" aria-live="polite"><div class="message-row bot-row"><div class="message-bubble bot-bubble">Hi {{ first_name }}! Your insurance preferences have been saved. What would you like to know about insurance?</div></div></div>
+<div class="suggestions"><button class="suggestion-chip">Explain health insurance</button><button class="suggestion-chip">What is a waiting period?</button><button class="suggestion-chip">How do I file a claim?</button></div>
+<form id="chatForm" class="chat-input-area"><textarea id="messageInput" rows="1" maxlength="2000" placeholder="Type your insurance question..." aria-label="Your message"></textarea><button id="sendBtn" type="submit" class="btn send-btn">Send</button></form>
+<div class="chat-footer">General information only. Always check official policy wording and consult the insurer for product-specific advice.</div>
+</section></div></div>{% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='js/chat.js') }}"></script>{% endblock %}
